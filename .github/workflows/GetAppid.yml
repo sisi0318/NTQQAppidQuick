@@ -9,16 +9,12 @@ on:
                 default: 'https://dldir1.qq.com/qqfile/qq/QQNT/0256c948/linuxqq_3.2.12-28418_amd64.deb'
             group_id:
                 description: '发送端'
-                required: false
+                required: true
                 default: '填我填我'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    env:
-      API: ${{ secrets.API }}
-      SEND_KEY: ${{ secrets.SEND_KEY }}
 
     steps:
         - name: Clone Repository
@@ -27,6 +23,11 @@ jobs:
         - uses: actions/setup-python@v5
           with:
             python-version: '3.10' 
+
+        - name: Set environment variables
+          run: |
+            echo "API=${{ secrets.API }}" >> $GITHUB_ENV
+            echo "SEND_KEY=${{ secrets.SEND_KEY }}" >> $GITHUB_ENV
 
         - name: Get Appid
           run: sudo bash ./GetAppid.sh ${{ github.event.inputs.download_url }} ${{ github.event.inputs.group_id }}
