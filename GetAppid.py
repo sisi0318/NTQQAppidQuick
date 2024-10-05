@@ -5,11 +5,13 @@ from time import sleep
 import frida
 import requests
 
+api = os.getenv('API')
+key = os.getenv('SEND_KEY')
+
 def send_key(msg):
     env = dict(os.environ)
-    # print(env)
-    api = os.getenv('API')
-    key = os.getenv('SEND_KEY')
+    print(env)
+
     group = os.environ['SEND']
     data = json.dumps({
         'group_id': group,
