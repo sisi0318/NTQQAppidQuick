@@ -24,13 +24,15 @@ jobs:
           with:
             python-version: '3.10' 
 
-        - name: Set environment variables
+        - name: 调试环境变量
           run: |
-            echo "API=${{ secrets.API }}" >> $GITHUB_ENV
-            echo "SEND_KEY=${{ secrets.SEND_KEY }}" >> $GITHUB_ENV
+            echo "检查 API 和 SEND_KEY 是否可用："
+            echo "API: ${API}"
+            echo "SEND_KEY: ${SEND_KEY}"
           env:
             API: ${{ secrets.API }}
             SEND_KEY: ${{ secrets.SEND_KEY }}
+
 
         - name: Get Appid
           env:
