@@ -24,7 +24,7 @@ def send_key(msg):
 def on_message(message, data):
     if message['type'] == 'send':
         url = os.environ['QQURL']
-        array ="[URL] "+ url + "\n[Appid] "+message['payload']
+        array ="[URL] "+ url + "\n[Appid] "+ str(message['payload'])
 
         send_key(array)
         print("[Python] [Appid]", message['payload'])
