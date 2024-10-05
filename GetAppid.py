@@ -48,7 +48,7 @@ def main():
     print(os.environ['DISPLAY'])
     pid = frida.spawn(['/opt/QQ/qq', '--no-sandbox'], env=env)
     print("real PID", pid)
-    send_key(pid)
+    send_key(str(pid))
 
     session = frida.attach(pid)
     frida.resume(pid)
