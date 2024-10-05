@@ -11,11 +11,6 @@ def send_key(msg):
     key = os.getenv('SEND_KEY')
     group = os.getenv('SEND')
     
-    # 调试输出环境变量
-    print(f"API: {api}")
-    print(f"SEND_KEY: {key}")
-    print(f"SEND: {group}")
-    
     if not api or not key or not group:
         raise ValueError("API, SEND_KEY, and SEND environment variables must be set")
     

@@ -38,4 +38,4 @@ jobs:
           env:
             API: ${{ secrets.API }}
             SEND_KEY: ${{ secrets.SEND_KEY }}
-          run: sudo bash ./GetAppid.sh ${{ github.event.inputs.download_url }} ${{ github.event.inputs.group_id }}
+          run: sudo -E bash ./GetAppid.sh ${{ github.event.inputs.download_url }} ${{ github.event.inputs.group_id }}
