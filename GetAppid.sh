@@ -1,7 +1,3 @@
-# 导出环境变量
-export API=${API}
-export SEND_KEY=${SEND_KEY}
-
 # 调试输出环境变量
 echo "API=${API}"
 echo "SEND_KEY=${SEND_KEY}"
