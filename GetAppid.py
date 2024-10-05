@@ -7,7 +7,7 @@ import requests
 
 def send_key(msg):
     env = dict(os.environ)
-    print(env)
+    # print(env)
     api = os.getenv('API')
     key = os.getenv('SEND_KEY')
     group = os.environ['SEND']
