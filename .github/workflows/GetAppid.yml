@@ -6,7 +6,7 @@ on:
             download_url:
                 description: 'URL to download the file'
                 required: true
-                default: '填我填我'
+                default: 'https://dldir1.qq.com/qqfile/qq/QQNT/0256c948/linuxqq_3.2.12-28418_amd64.deb'
             group_id:
                 description: '发送端'
                 required: false
@@ -15,6 +15,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    env:
+      API: ${{ secrets.API }}
+      SEND_KEY: ${{ secrets.SEND_KEY }}
 
     steps:
         - name: Clone Repository
@@ -25,7 +29,4 @@ jobs:
             python-version: '3.10' 
 
         - name: Get Appid
-          env:
-              API: ${{ secrets.API }}
-              SEND_KEY: ${{ secrets.SEND_KEY }}
           run: sudo bash ./GetAppid.sh ${{ github.event.inputs.download_url }} ${{ github.event.inputs.group_id }}
