@@ -38,6 +38,13 @@ sleep 5  # 等待 fluxbox 启动
 x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd &
 python -m pip install frida
 python -m pip install requests
+
+# 导出环境变量
+export API=${API}
+export SEND_KEY=${SEND_KEY}
+
+# 运行 Python 脚本
 sudo python GetAppid.py $1 $2
+
 # 输出所有名为qq的进程
 ps -ef | grep qq
